@@ -4,35 +4,35 @@ if (!localStorage['templateData']) {
     header_image_url: 'https://gallery.mailchimp.com/02e8ae2d0add98d18f17fe0c2/images/04aec4e6-ada2-4cb4-ac5e-3a51d078d262.jpg',
     intro: `The jasmine is blooming, the days are getting longer and the collective sigh of hayfever sufferers grows louder. Indeed, the lovely season of spring is upon us, ready to lighten moods and jacket thickness.
 
-  Did you have a nice winter?
+Did you have a nice winter?
 
-  The Inspire9 newsletter took a little sabbatical but the community itself powered away on projects. New faces joined us, many teams celebrated successes and our members got together to break bread and toast these successes at a number of memorable social events.
+The Inspire9 newsletter took a little sabbatical but the community itself powered away on projects. New faces joined us, many teams celebrated successes and our members got together to break bread and toast these successes at a number of memorable social events.
 
-  So - to the highlights then?
+So - to the highlights then?
 
-  - Rome2Rio hit 320,000 daily visits and celebrated with a delicious cake from Gelato Messina.
-  - CareMonkey were nominated for a ANZIA Award - good luck team!
-  - The 2015 Angelcube teams were announced.
-  - The Inspire9 team expanded. We welcomed Meegan Jia-Good and oh boy has she made Friday Night Drinks an occasion! You should come by one Friday and see what we mean.
-  - Pot Luck continued to bring our members to the communal table. Check out our facebook page for photos.
-  - On August 20 we held Triviatastic 2015. Rum punch cocktails, juggling and a good old-fashioned battle of brains. Check out our facebook page for photos.
+- Rome2Rio hit 320,000 daily visits and celebrated with a delicious cake from Gelato Messina.
+- CareMonkey were nominated for a ANZIA Award - good luck team!
+- The 2015 Angelcube teams were announced.
+- The Inspire9 team expanded. We welcomed Meegan Jia-Good and oh boy has she made Friday Night Drinks an occasion! You should come by one Friday and see what we mean.
+- Pot Luck continued to bring our members to the communal table. Check out our facebook page for photos.
+- On August 20 we held Triviatastic 2015. Rum punch cocktails, juggling and a good old-fashioned battle of brains. Check out our facebook page for photos.
 
-  We are so excited about what spring will bring. We hope you are too. Here's to building great things together.`,
+We are so excited about what spring will bring. We hope you are too. Here's to building great things together.`,
     article: {
       title: 'The Cultural Architect',
       body: `**The new world of work organisations will require a new breed of worker.**
 
-  As new challenges emerge so do fresh opportunities for never before seen roles.
+As new challenges emerge so do fresh opportunities for never before seen roles.
 
-  These roles will require skills, behaviours and mindsets that have previously been laughed or locked out of the boardroom.
+These roles will require skills, behaviours and mindsets that have previously been laughed or locked out of the boardroom.
 
-  These roles will predominantly be filled by people who have ignored, avoided or *survived* the corporate conditioning.
+These roles will predominantly be filled by people who have ignored, avoided or *survived* the corporate conditioning.
 
-  People who have reawakened their creativity, who are driven by a deeper purpose and are seeking meaningful ways to channel their unique essence.
+People who have reawakened their creativity, who are driven by a deeper purpose and are seeking meaningful ways to channel their unique essence.
 
-  Companies would do well to start exploring the idea of what these roles might look like. And who might fill them.
+Companies would do well to start exploring the idea of what these roles might look like. And who might fill them.
 
-  One such example is below. May I introduce an emerging role in the modern business landscape I like to call **The Cultural Architect**.`,
+One such example is below. May I introduce an emerging role in the modern business landscape I like to call **The Cultural Architect**.`,
       url: 'http://www.mykeldixon.com/blog/2015/7/23/the-cultural-architect',
       image_url: ''
     },
