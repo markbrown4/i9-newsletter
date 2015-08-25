@@ -36,7 +36,6 @@ One such example is below. May I introduce an emerging role in the modern busine
       url: 'http://www.mykeldixon.com/blog/2015/7/23/the-cultural-architect',
       image_url: ''
     },
-    events_month: 'February',
     first_event: {
       group: 'General Assembly',
       date: '2015-02-12',
@@ -128,7 +127,6 @@ app.controller('NewsletterController', function($scope, $http) {
         title: $scope.data.article.title,
         body: Markdown($scope.data.article.body)
       },
-      events_month: moment($scope.data.first_event.date).format('MMMM'),
       first_event: {
         group: $scope.data.first_event.group,
         date: moment($scope.data.first_event.date).format('dddd MMMM D'),
