@@ -193,6 +193,9 @@ table.events tr td.event:last-child {
                 <tr>
                   <td>
                     <img src="<%= header_image_url %>" style="display: block; width: 100%" width="640" class="banner-image">
+                    <% if (header_image_caption) { %>
+                      <p style="margin: 15px 0 0; font-size: 12px; color: #aaaaaa; text-align: center;"><%= header_image_caption %></p>
+                    <% } %>
                   </td>
                 </tr>
               </table>
@@ -231,7 +234,12 @@ table.events tr td.event:last-child {
                         <td width="45" class="gutter-col"></td>
                         <td class="feature-content" style="font-size: 13px">
                           <% if (article.image_url.length > 0) { %>
-                          <div class="image-wrap" style="float: right; width: 215px; margin: 5px 0 25px 25px; border-radius: 2px; overflow: hidden;"><img src="<%= article.image_url %>" width="100%" style="display: block"></div>
+                          <div class="image-wrap" style="float: right; width: 215px; margin: 5px 0 25px 25px; border-radius: 2px; overflow: hidden;">
+                            <img src="<%= article.image_url %>" width="100%" style="display: block">
+                            <% if (article.image_caption) { %>
+                              <p style="margin: 5px 0 0; font-size: 12px; color: #aaaaaa"><%= article.image_caption %></p>
+                            <% } %>
+                          </div>
                           <% } %>
                           <h3 style="font-size: 20px; font-family: Trebuchet MS,Lucida Grande,Tahoma,sans-serif; margin: 0 0 10px 0; line-height: 1.2; color: #323232;"><%= article.title %></h3>
                           <%= article.body %>

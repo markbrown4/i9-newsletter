@@ -120,9 +120,11 @@ app.controller('NewsletterController', function($scope, $http) {
   var updateCode = function() {
     var html = template({
       header_image_url: $scope.data.header_image_url,
+      header_image_caption: $scope.data.header_image_caption,
       intro_html: Markdown($scope.data.intro),
       article: {
         image_url: $scope.data.article.image_url,
+        image_caption: $scope.data.article.image_caption,
         url: $scope.data.article.url,
         title: $scope.data.article.title,
         body: Markdown($scope.data.article.body)
