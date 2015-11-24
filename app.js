@@ -81,6 +81,8 @@ app.controller('NewsletterController', function($scope, $http) {
     localStorage['templateData'] = JSON.stringify($scope.data);
   }, 3000);
 
+  var templatesToLoad = 3;
+
   var template2 = function() {};
   $('#template2-iframe').on('load', function() {
     var template2HTML = $('#template2-iframe')[0].contentWindow.document.documentElement.innerHTML;
@@ -91,6 +93,8 @@ app.controller('NewsletterController', function($scope, $http) {
   </html>
   `;
     template2 = _.template(source2);
+
+    templateLoaded();
   })
 
   var template4 = function() {};
@@ -103,6 +107,8 @@ app.controller('NewsletterController', function($scope, $http) {
   </html>
   `;
     template4 = _.template(source4);
+
+    templateLoaded();
   })
 
   var templateSimple = function() { return ''; };
@@ -115,91 +121,102 @@ app.controller('NewsletterController', function($scope, $http) {
   </html>
   `;
     templateSimple = _.template(sourceSimple);
+
+    templateLoaded();
   })
 
-  var template = function(data) {
-    if (data.article.title.length == 0 && data.first_event.title.length == 0) {
-      return templateSimple(data);
+  var templateLoaded = function() {
+    templatesToLoad--;
+    if (templatesToLoad == 0) {
+      allTemplatesLoaded();
     }
-    else if (data.third_event.title.length > 0) {
-      return template4(data);
-    }
-    else {
-      return template2(data);
-    }
-  };
+  }
 
-  var previewDoc = $('#preview-iframe')[0].contentWindow.document;
-  var $code = $('#code-html');
-
-  var updateCode = function() {
-    var html = template({
-      header_image_url: $scope.data.header_image_url,
-      header_image_caption: $scope.data.header_image_caption,
-      intro_html: Markdown($scope.data.intro),
-      article: {
-        image_url: $scope.data.article.image_url,
-        image_caption: $scope.data.article.image_caption,
-        url: $scope.data.article.url,
-        title: $scope.data.article.title,
-        body: Markdown($scope.data.article.body)
-      },
-      first_event: {
-        group: $scope.data.first_event.group,
-        date: moment($scope.data.first_event.date).format('dddd MMMM D'),
-        image_url: $scope.data.first_event.image_url,
-        title: $scope.data.first_event.title,
-        body: $scope.data.first_event.body,
-        url: $scope.data.first_event.url
-      },
-      second_event: {
-        group: $scope.data.second_event.group,
-        date: moment($scope.data.second_event.date).format('dddd MMMM D'),
-        image_url: $scope.data.second_event.image_url,
-        title: $scope.data.second_event.title,
-        body: $scope.data.second_event.body,
-        url: $scope.data.second_event.url
-      },
-      third_event: {
-        group: $scope.data.third_event.group,
-        date: moment($scope.data.third_event.date).format('dddd MMMM D'),
-        image_url: $scope.data.third_event.image_url,
-        title: $scope.data.third_event.title,
-        body: $scope.data.third_event.body,
-        url: $scope.data.third_event.url
-      },
-      fourth_event: {
-        group: $scope.data.fourth_event.group,
-        date: moment($scope.data.fourth_event.date).format('dddd MMMM D'),
-        image_url: $scope.data.fourth_event.image_url,
-        title: $scope.data.fourth_event.title,
-        body: $scope.data.fourth_event.body,
-        url: $scope.data.fourth_event.url
+  var allTemplatesLoaded = function() {
+    var template = function(data) {
+      if (data.article.title.length == 0 && data.first_event.title.length == 0) {
+        return templateSimple(data);
       }
-    });
-    previewDoc.open();
-    previewDoc.write(html);
-    previewDoc.close();
+      else if (data.third_event.title.length > 0) {
+        return template4(data);
+      }
+      else {
+        return template2(data);
+      }
+    };
 
-    $code.val(html);
-  }
+    var previewDoc = $('#preview-iframe')[0].contentWindow.document;
+    var $code = $('#code-html');
 
-  var converter = new showdown.Converter();
-  var Markdown = function(content) {
-    html = converter.makeHtml(content);
-    html = html.replace(/{FIRST_NAME}/g,  '*|FNAME|*');
-    html = html.replace(/<p>/g,  '<p style="margin: 0 0 1em;">');
-    html = html.replace(/<ul>/g, '<ul style="margin: 0; padding: 0;">');
-    html = html.replace(/<li>/g, '<li style="margin: 0 0 8px 13px; padding: 0 0 0 10px;">');
-    html = html.replace(/<a href="/g, '<a style="color: #ff525e" target="_blank" href="');
+    var updateCode = function() {
+      var html = template({
+        header_image_url: $scope.data.header_image_url,
+        header_image_caption: $scope.data.header_image_caption,
+        intro_html: Markdown($scope.data.intro),
+        article: {
+          image_url: $scope.data.article.image_url,
+          image_caption: $scope.data.article.image_caption,
+          url: $scope.data.article.url,
+          title: $scope.data.article.title,
+          body: Markdown($scope.data.article.body)
+        },
+        first_event: {
+          group: $scope.data.first_event.group,
+          date: moment($scope.data.first_event.date).format('dddd MMMM D'),
+          image_url: $scope.data.first_event.image_url,
+          title: $scope.data.first_event.title,
+          body: $scope.data.first_event.body,
+          url: $scope.data.first_event.url
+        },
+        second_event: {
+          group: $scope.data.second_event.group,
+          date: moment($scope.data.second_event.date).format('dddd MMMM D'),
+          image_url: $scope.data.second_event.image_url,
+          title: $scope.data.second_event.title,
+          body: $scope.data.second_event.body,
+          url: $scope.data.second_event.url
+        },
+        third_event: {
+          group: $scope.data.third_event.group,
+          date: moment($scope.data.third_event.date).format('dddd MMMM D'),
+          image_url: $scope.data.third_event.image_url,
+          title: $scope.data.third_event.title,
+          body: $scope.data.third_event.body,
+          url: $scope.data.third_event.url
+        },
+        fourth_event: {
+          group: $scope.data.fourth_event.group,
+          date: moment($scope.data.fourth_event.date).format('dddd MMMM D'),
+          image_url: $scope.data.fourth_event.image_url,
+          title: $scope.data.fourth_event.title,
+          body: $scope.data.fourth_event.body,
+          url: $scope.data.fourth_event.url
+        }
+      });
+      previewDoc.open();
+      previewDoc.write(html);
+      previewDoc.close();
 
-    return html;
-  }
+      $code.val(html);
+    }
 
-  updateCode();
+    var converter = new showdown.Converter();
+    var Markdown = function(content) {
+      html = converter.makeHtml(content);
+      html = html.replace(/{FIRST_NAME}/g,  '*|FNAME|*');
+      html = html.replace(/<p>/g,  '<p style="margin: 0 0 1em;">');
+      html = html.replace(/<ul>/g, '<ul style="margin: 0; padding: 0;">');
+      html = html.replace(/<li>/g, '<li style="margin: 0 0 8px 13px; padding: 0 0 0 10px;">');
+      html = html.replace(/<a href="/g, '<a style="color: #ff525e" target="_blank" href="');
 
-  $('.nav-tabs a').click(function() {
+      return html;
+    }
+
     updateCode();
-  })
+
+    $('.nav-tabs a').click(function() {
+      updateCode();
+    })
+  }
 
 });
