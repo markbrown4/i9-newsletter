@@ -105,20 +105,20 @@ app.controller('NewsletterController', function($scope, $http) {
     template4 = _.template(source4);
   })
 
-  var templateSimple = function() {};
+  var templateSimple = function() { return ''; };
   $('#templatesimple-iframe').on('load', function() {
     var templateHTML = $('#templatesimple-iframe')[0].contentWindow.document.documentElement.innerHTML;
     templateHTML = templateHTML.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-    var source = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    var sourceSimple = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml">
   ${ templateHTML }
   </html>
   `;
-    templateSimple = _.template(source);
+    templateSimple = _.template(sourceSimple);
   })
 
   var template = function(data) {
-    if (!data.article.title && !data.first_event.title) {
+    if (data.article.title.length == 0 && data.first_event.title.length == 0) {
       return templateSimple(data);
     }
     else if (data.third_event.title.length > 0) {
