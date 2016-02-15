@@ -94,6 +94,7 @@ app.controller('NewsletterController', function($scope, $http) {
   `;
     template2 = _.template(source2);
 
+    console.log('2 load');
     templateLoaded();
   })
 
@@ -108,6 +109,7 @@ app.controller('NewsletterController', function($scope, $http) {
   `;
     template4 = _.template(source4);
 
+    console.log('4 load');
     templateLoaded();
   })
 
@@ -122,6 +124,7 @@ app.controller('NewsletterController', function($scope, $http) {
   `;
     templateSimple = _.template(sourceSimple);
 
+    console.log('simple load');
     templateLoaded();
   })
 
