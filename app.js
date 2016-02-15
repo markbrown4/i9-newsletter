@@ -86,7 +86,7 @@ app.controller('NewsletterController', function($scope, $http) {
   var template2 = function() {};
   $('#template2-iframe').on('load', function() {
     var template2HTML = $('#template2-iframe')[0].contentWindow.document.documentElement.innerHTML;
-    template2HTML = template2HTML.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+    template2HTML = template2HTML.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/mb-src/g, 'src');
     var source2 = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml">
   ${ template2HTML }
@@ -100,7 +100,7 @@ app.controller('NewsletterController', function($scope, $http) {
   var template4 = function() {};
   $('#template4-iframe').on('load', function() {
     var template4HTML = $('#template4-iframe')[0].contentWindow.document.documentElement.innerHTML;
-    template4HTML = template4HTML.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+    template4HTML = template4HTML.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/mb-src/g, 'src');
     var source4 = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml">
   ${ template4HTML }
@@ -114,7 +114,7 @@ app.controller('NewsletterController', function($scope, $http) {
   var templateSimple = function() { return ''; };
   $('#templatesimple-iframe').on('load', function() {
     var templateHTML = $('#templatesimple-iframe')[0].contentWindow.document.documentElement.innerHTML;
-    templateHTML = templateHTML.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+    templateHTML = templateHTML.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/mb-src/g, 'src');
     var sourceSimple = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml">
   ${ templateHTML }
@@ -133,6 +133,8 @@ app.controller('NewsletterController', function($scope, $http) {
   }
 
   var allTemplatesLoaded = function() {
+    $(document.body).removeClass('hidden')
+
     var template = function(data) {
       if (data.article.title.length == 0 && data.first_event.title.length == 0) {
         return templateSimple(data);

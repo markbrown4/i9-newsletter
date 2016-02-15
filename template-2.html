@@ -193,7 +193,7 @@ table.events tr td.event:last-child {
               <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   <td>
-                    <img src="<%= header_image_url %>" style="display: block; width: 100%" width="640" class="banner-image">
+                    <img mb-src="<%= header_image_url %>" style="display: block; width: 100%" width="640" class="banner-image">
                     <% if (header_image_caption) { %>
                       <p style="margin: 15px 0 0; font-size: 12px; color: #aaaaaa; text-align: center;"><%= header_image_caption %></p>
                     <% } %>
@@ -236,7 +236,7 @@ table.events tr td.event:last-child {
                         <td class="feature-content" style="font-size: 13px">
                           <% if (article.image_url.length > 0) { %>
                           <div class="image-wrap" style="float: right; width: 215px; margin: 5px 0 25px 25px; border-radius: 2px; overflow: hidden;">
-                            <img src="<%= article.image_url %>" width="100%" style="display: block">
+                            <img mb-src="<%= article.image_url %>" width="100%" style="display: block">
                             <% if (article.image_caption) { %>
                               <p style="margin: 5px 0 0; font-size: 12px; color: #aaaaaa"><%= article.image_caption %></p>
                             <% } %>
@@ -294,7 +294,7 @@ table.events tr td.event:last-child {
                                 <table border="0" cellspacing="0" cellpadding="0" class="event-header">
                                   <tr>
                                     <td width="45" valign="top">
-                                      <img src="<%= first_event.image_url %>" width="100%" />
+                                      <img mb-src="<%= first_event.image_url %>" width="100%" />
                                     </td>
                                     <td width="13" class="gutter-col-tiny"></td>
                                     <td>
@@ -330,7 +330,7 @@ table.events tr td.event:last-child {
                                 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="event-header">
                                   <tr>
                                     <td width="45" valign="top">
-                                      <img src="<%= second_event.image_url %>" width="100%" />
+                                      <img mb-src="<%= second_event.image_url %>" width="100%" />
                                     </td>
                                     <td width="13" class="gutter-col-tiny"></td>
                                     <td>
