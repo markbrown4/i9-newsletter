@@ -96,7 +96,7 @@ app.controller('NewsletterController', function($scope, $http) {
 
     console.log('2 load');
     templateLoaded();
-  })
+  }).attr('src', 'template-2.html');
 
   var template4 = function() {};
   $('#template4-iframe').on('load', function() {
@@ -111,7 +111,7 @@ app.controller('NewsletterController', function($scope, $http) {
 
     console.log('4 load');
     templateLoaded();
-  })
+  }).attr('src', 'template-4.html');
 
   var templateSimple = function() { return ''; };
   $('#templatesimple-iframe').on('load', function() {
@@ -126,7 +126,7 @@ app.controller('NewsletterController', function($scope, $http) {
 
     console.log('simple load');
     templateLoaded();
-  })
+  }).attr('src', 'template-simple.html');
 
   var templateLoaded = function() {
     templatesToLoad--;
